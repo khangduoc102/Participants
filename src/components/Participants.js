@@ -9,11 +9,13 @@ const Participants = (props) => {
             <tr><th width="150">Name</th><th width="150">Email</th><th width="150">Phone</th><th width="150"></th></tr>
             {props.data.participants.map((participant, index) => (
                 <Participant
+                    id={participant.id}
                     key={participant.id}
                     name={participant.full_name}
                     email={participant.email}
                     phone={participant.phone}
                     count={index+1}
+                    handleDeleteParticipant={props.handleDeleteParticipant}
                 />
             ))
             }

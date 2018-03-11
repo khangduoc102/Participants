@@ -37,6 +37,7 @@ export default class AddParticipant extends React.Component {
                     </tbody>
                 </table>
             </form>
+            {this.state.error && <p>{this.state.error}</p>}
         </div>    
         );
     }

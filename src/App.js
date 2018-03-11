@@ -21,7 +21,16 @@ class App extends Component {
   }
 
   handleAddParticipant = (participant) => {
-    this.setState((prevState) => ({participants: prevState.participants.concat([participant])}));
+    if(participant.full_name==='' || participant.email==='' || participant.phone===''){
+      return "Values must not be empty!";
+    }
+    else{
+      this.setState((prevState) => ({participants: prevState.participants.concat([participant])}));
+    }
+  }
+
+  handleDeleteParticipant = (id) => {
+    this.setState((prevState) => ({participants: prevState.participants.filter((participant) => participant.id!==id)}));
   }
 
   render() {
@@ -35,8 +44,12 @@ class App extends Component {
           <h3>List of participants</h3>
           <AddParticipant 
             handleAddParticipant={this.handleAddParticipant}
-            data={this.state}/>
-          <Participants data={this.state}/>
+            data={this.state}
+          />
+          <Participants 
+            data={this.state}
+            handleDeleteParticipant={this.handleDeleteParticipant}
+           />
         </div>
       </div>
     );

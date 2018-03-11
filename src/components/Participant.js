@@ -7,7 +7,10 @@ const Participant = (props) => (
         <td>{props.name}</td>
         <td>{props.email}</td>
         <td>{props.phone}</td>
-        <td><button>Edit</button><button>Delete</button></td>
+        <td>
+            <button>Edit</button>
+            <button onClick={(e) => props.handleDeleteParticipant(props.id)}>Delete</button>
+        </td>
     </tr>
 )
 
