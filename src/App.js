@@ -3,7 +3,7 @@ import logo from './logo.svg';
 
 import Participants from './components/Participants';
 import AddParticipant from './components/AddParticipant';
-
+import Participant from './components/utils/Participant';
 
 import './App.css';
 
@@ -33,6 +33,16 @@ class App extends Component {
     this.setState((prevState) => ({participants: prevState.participants.filter((participant) => participant.id!==id)}));
   }
 
+  //finish this
+  handleEditParticipant = (id, name, email, phone) => {
+    let newParticipants = this.state.participants;
+    let participant = new Participant(id, name, email, phone);
+    
+    newParticipants[newParticipants.indexOf(newParticipants.filter((participant) => participant.id===id)[0])] = participant;
+    
+    this.setState((prevState) => ({participants: newParticipants}));
+  }
+
   render() {
     return (
       <div>
@@ -49,6 +59,7 @@ class App extends Component {
           <Participants 
             data={this.state}
             handleDeleteParticipant={this.handleDeleteParticipant}
+            handleEditParticipant={this.handleEditParticipant}
            />
         </div>
       </div>

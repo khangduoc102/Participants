@@ -9,11 +9,19 @@ export default class AddParticipant extends React.Component {
     handleAddParticipant= (e) => {
         e.preventDefault();
         
+        var participant= {};
+
         const name = e.target.elements.namn.value.trim();
         const email = e.target.elements.email.value.trim();
         const phone = e.target.elements.fon.value.trim();
 
-        let participant = new Participant(this.props.data.participants.length+1, name, email, phone);
+        if(this.props.data.participants.length===0) {
+            participant = new Participant(1, name, email, phone);
+        }
+        else{
+            participant = new Participant(this.props.data.participants[this.props.data.participants.length-1].id + 1, name, email, phone);
+        }
+
 
         const error = this.props.handleAddParticipant(participant);
         

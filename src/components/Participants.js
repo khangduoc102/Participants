@@ -14,8 +14,10 @@ const Participants = (props) => {
                     name={participant.full_name}
                     email={participant.email}
                     phone={participant.phone}
+                    participants={props.data.participants}
                     count={index+1}
                     handleDeleteParticipant={props.handleDeleteParticipant}
+                    handleEditParticipant={props.handleEditParticipant}
                 />
             ))
             }
