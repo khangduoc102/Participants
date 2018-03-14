@@ -1,9 +1,8 @@
 Participants React.js App
 
 - An application made to sumbit to Nord Software internship position in Web Development, and also a great exercise to practice basics of React.js.
-
-- The application is a list of Participants with information of their full name, email address and phone number. Users can add a new participant, delete a participant, modify a participant's info and sort participants by alphabet.
-
+- The application is a list of Participants with information of their full name, email address and phone number. Users can add a new participant, delete a participant, modify a participant's info and sort participants by alphabet. 
+- The state of participants will still be saved as long as the server has not been shut-down.
 - It is a great way to have fun with React Components.
 
 Getting Started
