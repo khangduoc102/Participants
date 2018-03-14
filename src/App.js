@@ -17,7 +17,7 @@ class App extends Component {
         phone: "288 998 7762"
       },
       {"id": 2, "full_name":"Russell Escale","email":"rescale1@npr.org","phone":"773 576 9422"}
-    ]
+    ],
   }
 
   handleAddParticipant = (participant) => {
@@ -33,7 +33,12 @@ class App extends Component {
     this.setState((prevState) => ({participants: prevState.participants.filter((participant) => participant.id!==id)}));
   }
 
-  //finish this
+  //modify this
+  handleSortParticipants = () => {
+    console.log('sorted');
+    this.setState((prevState) => ({participants: prevState.participants.sort((a, b)=> ((a.full_name.toUpperCase() > b.full_name.toUpperCase()) ? 1 : (a.full_name.toUpperCase() < b.full_name.toUpperCase()) ? -1 : 0))}))
+  }
+
   handleEditParticipant = (id, name, email, phone) => {
     let newParticipants = this.state.participants;
     let participant = new Participant(id, name, email, phone);
@@ -58,6 +63,7 @@ class App extends Component {
           />
           <Participants 
             data={this.state}
+            handleSortParticipants={this.handleSortParticipants}
             handleDeleteParticipant={this.handleDeleteParticipant}
             handleEditParticipant={this.handleEditParticipant}
            />

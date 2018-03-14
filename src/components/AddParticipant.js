@@ -19,7 +19,14 @@ export default class AddParticipant extends React.Component {
             participant = new Participant(1, name, email, phone);
         }
         else{
-            participant = new Participant(this.props.data.participants[this.props.data.participants.length-1].id + 1, name, email, phone);
+            //Find the biggest id
+            let ids = [];
+            let maxId= 0;
+            
+            this.props.data.participants.forEach((participant) => {ids.push(participant.id)});
+            maxId = ids.reduce((a,b) => Math.max(a,b));
+
+            participant = new Participant(maxId + 1, name, email, phone);
         }
 
 
