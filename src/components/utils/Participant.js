@@ -5,7 +5,6 @@ class Participant {
         this.email=email;
         this.phone=phone;
     }
-
 }
 
 export default Participant;

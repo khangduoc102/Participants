@@ -23,13 +23,13 @@ export default class Participant extends React.Component {
                 )
             }
             else{
-                return ( <tr>
-                    <td>{this.props.name}</td>
-                    <td>{this.props.email}</td>
-                    <td>{this.props.phone}</td>
-                    <td>
-                        <button onClick={this.handleToggle}>Edit</button>
-                        <button onClick={(e) => this.props.handleDeleteParticipant(this.props.id)}>Delete</button>
+                return ( <tr className="participant">
+                    <td className="participant-column">{this.props.name}</td>
+                    <td className="participant-column">{this.props.email}</td>
+                    <td className="participant-column">{this.props.phone}</td>
+                    <td className="participant-column">
+                        <button onClick={this.handleToggle} className="participant-column-button"><i className="material-icons">mode_edit</i></button>
+                        <button onClick={(e) => this.props.handleDeleteParticipant(this.props.id)} className="participant-column-button"><i className="material-icons">delete</i></button>
                     </td>
                 </tr>)
             }

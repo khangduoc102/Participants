@@ -20,19 +20,16 @@ export default class EditParticipant extends React.Component {
 
     render() {
         return (
-            <tr>    
-                          
-                <td colSpan="4">
-                <div>
-                    <form  onSubmit={this.handleEditParticipant}>
-                        <input type="text" defaultValue={this.props.data.name} name="name"/>
-                        <input type="text" defaultValue={this.props.data.email} name="email"/>
-                        <input type="text" defaultValue={this.props.data.phone} name="phone"/>
-                                 
-                        <button>Save</button>
-                        <button onClick={this.props.handleToggle}>Cancel</button>
+            <tr height="72px">                           
+                <td colSpan="4" className="edit-participant">
+                    <form  onSubmit={this.handleEditParticipant} className="edit-participant-form">
+                        <input type="text" defaultValue={this.props.data.name} name="name" className="edit-participant-form-input" size="14"/>
+                        <input type="text" defaultValue={this.props.data.email} name="email" className="edit-participant-form-input" size="30"/>
+                        <input type="text" defaultValue={this.props.data.phone} name="phone" className="edit-participant-form-input" size="18"/>
+                            
+                        <button onClick={this.props.handleToggle} className="edit-participant-cancel-button">Cancel</button>
+                        <button className="edit-participant-save-button">Save</button> 
                     </form>
-                    </div>
                 </td>
                 {this.state.error && <p>{this.state.error}</p>}
         </tr>
